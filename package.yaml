@@ -1,0 +1,31 @@
+manifest-version: 1.0
+
+info:
+  name: ubuntu_cloud
+  description: "Ubuntu Cloud Image"
+  version: 14.04
+
+app:
+  # Indicate app type (vm, paas, lxc etc.,)
+  apptype: vm
+
+  resources:
+   cpu: 30
+   memory: 262144
+   vcpu: 1
+
+   disk:
+    - target-dev: hdc
+      file: ubuntu_cloud.qcow2
+
+   interfaces:
+    - target-dev: net1
+
+   serial:
+    - console
+    - aux
+
+  # Specify runtime and startup
+  startup:
+    runtime: kvm
+    boot-dev: hd
